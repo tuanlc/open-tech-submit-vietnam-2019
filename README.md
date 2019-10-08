@@ -1,3 +1,3 @@
 # Modular architectures in software development
 
-Show this slide by open index.html file in your browser
+Presentation online: https://tuanlc.github.io/open-tech-submit-vietnam-2019/index.html

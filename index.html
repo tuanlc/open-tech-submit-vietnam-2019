@@ -30,10 +30,6 @@
 					<h4>Modular architectures in software development</h4>
 					<img style="height: 200px;" data-src="images/tlcong.png">
 					<p>Speaker : <a>Lê Công Tuấn</a></p>
-					<br>
-					<p>
-					Presentation online : <a>https://github.com/tuanlc/open-tech-submit-vietnam-2019</a>
-					</p>
 				</section>
 				<section data-markdown>
 					### About me
@@ -45,86 +41,137 @@
 					- Twitter: https://twitter.com/tlcong
 				</section>
 				<section>
-					<h3>Modular Architectures</h3>
-					<section data-markdown>
-						- Separating the functionality of a program into independent modules
-						- Two styles:
-							- Layer
-							- Services
-					</section>
-					<section>
-						<img style="height: 500px;" data-src="images/layer-style.png">
-						<p style="margin: auto; font-size: 10px;">Source: http://bit.ly/2VkdbOq</p>
-						<p style="margin: auto;">Layer style</p>
-					</section>
-					<section>
-						<img data-src="images/services-op.png">
-						<p style="margin: auto;">Services style</p>
-					</section>
-					<section data-markdown>
-						### Why?
-						-	Understanding and Debugging source code
-						-	Maintenance
-						-	Teams work independently
-						-	Plug on demand
-						</section>
+						<h3>Outline</h3>
+						<ul>
+							<li>Modular architectures</li>
+							<li>Modularity in OpenPaaS</li>
+							<li>Questions & Discussions</li>
+						</ul>
 				</section>
 				<section>
+					<h3>Modular Architectures</h3>
 					<section data-markdown>
-						### Modularity in OpenPaaS
-					</section>
-					<section data-markdown>
-						### Awesome Modules
-
-						- OpenPaaS Modules
-						- Come on top of classic NPM modules
-						- With modules, you can:
-						  - Add pages, or widgets, into the ESN web interface
-						  - Add REST endpoints, that third party applications will be able to query
-						  - Expose objects and services to other modules
-						- Modules loader: https://github.com/linagora/awesome-module-manager
+						- A way to develop & manage an application by decompose it into reusable logical modules & components
+						- Organize responsibility around business features
 					</section>
 					<section>
-						<h3>Communicate among OpenPaaS modules</h3>
-					</section>
-					<section data-markdown>
-						#### Core Registries
+						<h4>Traditional Layered Architecture</h4>
 
+						<img src="images/traditional-layered-architecture.jpg"/>
+					</section>
+					<section>
+						<h4>Problem with Traditional Layered Architecture</h4>
+
+						<ul>
+							<li>Code becomes hard to understand & maintain</li>
+							<li>A small change can effect to the who system</li>
+							<li>Testing becomes hard & expensive</li>
+							<li>Developer start to freak out & get demotivated</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Goals</h4>
+
+						<ul>
+							<li>Understanding and Debugging source code</li>
+							<li>Speed up time to develop a new feature</li>
+							<li>Maintenance</li>
+							<li>Teams work independently</li>
+							<li>Plug on demand</li>
+						</ul>
+					</section>
+				</section>
+				<section data-markdown>
+					### Modularity in OpenPaaS
+				</section>
+				<section>
+					<h3>OpenPaaS</h3>
+
+					<img src="images/services-op.png"/>
+				</section>
+				<section data-markdown>
+					### Awesome Modules
+
+					- OpenPaaS Modules
+					- Come on top of classic NPM modules
+					- With modules, you can:
+						- Add pages, or widgets, into the ESN web interface
+						- Add REST endpoints, that third party applications will be able to query
+						- Expose objects and services to other modules
+					- Modules loader: https://github.com/linagora/awesome-module-manager
+				</section>
+				<section>
+					<h3>Communicate among OpenPaaS modules</h3>
+				</section>
+				<section>
+					<h3>Core Registries</h3>
+					<section data-markdown>
 						- Core defines registries for generic concepts
 						- Modules register their logics and configurations
 						- Modules can read other module configurations from core registries
 
-						* Achievement:
+						```javascript
+							modules.exports = {
+								register,
+								getAll,
+								getByKey
+							}
+						```
+					</section>
+					<section data-markdown>
+						* Advantages:
 							- Modules completly independent
 							- Apply for both backend and frontend
-						* Draw back: Only apply for generic concept but not for specific modules
-					</section>
-					<section data-markdown>
-						#### Dynamic directives
-
-						- Create an anchor element where other modules can inject their parts to
-
-						* Achievement:
-							- Handle specific cases
-						* Draw back:
-						  - Modules are not independent
-							- Only for frontend
-					</section>
-					<section data-markdown>
-						#### Connected modules
-
-						Having a connected module among modules
-
-						* Achievement: 
-							- Handle specific cases
-							- Apply for both backend and frontend
-						* Draw back:
-							- Modules depend on each other
-							- Create one more connected module to connect modules
+						* Drawback: Only apply for generic concepts but not for specific modules
 					</section>
 				</section>
+				<section>
+					<h3>Dynamic directives</h3>
+					<section>
+						<p>Create an anchor element where other modules can inject their parts to</p>
+
+						<img src="images/inbox-calendar.png"/>
+					</section>
+					<section data-markdown>
+					* Advantages:
+						- Handle specific cases
+					* Drawback:
+						- Modules are not independent
+						- Only for frontend
+					</section>
+				</section>
+				<section>
+					<h3>Connected modules</h3>
+					<section data-markdown>
+						- Having a connected module among modules
+
+						```javascript
+						Modules:
+							linagora.esn.unifiedinbox
+							linagora.esn.james
+
+						Connected modules:
+						  linagora.esn.unifiedinbox.james
+						```
+					</section>
+					<section data-markdown>
+					* Advantages: 
+						- Handle specific cases
+						- Apply for both backend and frontend
+					* Drawback:
+						- Modules depend on each other
+						- Create one more connected module to connect modules
+					</section>
+				</section>
+				<section>
+					<h3>Questions?</h3>
+					<br>
+					<br>
+					<br>
+					<p>Presentation online : <a>https://tuanlc.github.io/open-tech-submit-vietnam-2019/index.html</a></p>
+				</section>
 				<section data-markdown>
-					#### Thanks for your attention!
+					#### Thank you!
 				</section>
 			</div>
 		</div>
