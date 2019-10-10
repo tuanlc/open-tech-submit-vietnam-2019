@@ -46,7 +46,6 @@
 						<ul>
 							<li>Modular architectures</li>
 							<li>Modular architecture in OpenPaaS</li>
-							<li>Conclusion</li>
 							<li>Questions & Discussions</li>
 						</ul>
 				</section>
@@ -72,25 +71,26 @@
 					</ul>
 				</section>
 				<section>
+						<h3>Traditional Layered Architecture</h3>
+						<section>
+							<img src="images/traditional-layered-architecture.jpg"/>
+						</section>
+						<section>
+							<h4>Problems</h4>
+	
+							<ul>
+								<li>Code becomes hard to understand & maintain</li>
+								<li>A small change can effect to the who system</li>
+								<li>Testing becomes hard & expensive</li>
+								<li>Developer start to freak out & get demotivated</li>
+							</ul>
+						</section>
+				</section>
+				<section>
 					<h3>Modular Architectures</h3>
 					<section data-markdown>
 						- A way to develop & manage an application by decompose it into reusable logical modules & components
 						- Organize responsibility around business features
-					</section>
-					<section>
-						<h4>Traditional Layered Architecture</h4>
-
-						<img src="images/traditional-layered-architecture.jpg"/>
-					</section>
-					<section>
-						<h4>Problem with Traditional Layered Architecture</h4>
-
-						<ul>
-							<li>Code becomes hard to understand & maintain</li>
-							<li>A small change can effect to the who system</li>
-							<li>Testing becomes hard & expensive</li>
-							<li>Developer start to freak out & get demotivated</li>
-						</ul>
 					</section>
 					<section>
 						<h4>Goals</h4>
@@ -130,6 +130,8 @@
 					<section data-markdown>
 						![awesome-module-manager](images/awesome-modules-manager.png)
 						- Modules loader: https://github.com/linagora/awesome-module-manager
+					</section>
+					<section data-markdown>
 						- Plug/Unplug modules in 2 easy steps
 					</section>
 					<section data-markdown>
@@ -228,16 +230,6 @@
 						- Modules depend on each other
 						- Create one more connected module to connect modules
 					</section>
-				</section>
-				<section data-markdown>
-					### Conclusion
-
-					- Achievement: Modularity the OpenPaaS platform by functionalities
-					- Issue: All the modules are loaded and running in the same OpenPaaS instance
-						- Use same resources
-						- Frontend performance
-					- Next: Each module run independently
-					
 				</section>
 				<section>
 					<h3>Questions & Discussion</h3>
