@@ -44,7 +44,8 @@
 						<h3>Outline</h3>
 						<ul>
 							<li>Modular architectures</li>
-							<li>Modularity in OpenPaaS</li>
+							<li>Modular architecture in OpenPaaS</li>
+							<li>Conclusion</li>
 							<li>Questions & Discussions</li>
 						</ul>
 				</section>
@@ -89,22 +90,61 @@
 
 					<img src="images/services-op.png"/>
 				</section>
-				<section data-markdown>
-					### Awesome Modules
-
+				<section>
+					<h3>Awesome Modules</h3>
+					
+					<section data-markdown>
 					- OpenPaaS Modules
 					- Come on top of classic NPM modules
 					- With modules, you can:
 						- Add pages, or widgets, into the ESN web interface
 						- Add REST endpoints, that third party applications will be able to query
 						- Expose objects and services to other modules
-					- Modules loader: https://github.com/linagora/awesome-module-manager
+					</section>
+					<section data-markdown>
+						![awesome-module-manager](images/awesome-modules-manager.png)
+						- Modules loader: https://github.com/linagora/awesome-module-manager
+						- Plug/Unplug modules in 2 easy steps
+					</section>
+					<section data-markdown>
+						* Step 1: Install the modules as a NPM dependencies
+						```json
+						{
+							"name": "linagora-rse",
+							"description": "Linagora RSE",
+							"main": "index.js",
+							"dependencies": {
+								"linagora.esn.contact": "linagora/linagora.esn.contact",
+								"linagora.esn.calendar": "linagora/linagora.esn.calendar",
+								...
+							}
+						...
+						```
+					</section>
+					<section data-markdown>
+							* Step 2: Load the modules:
+							```json
+							{
+								"app": {
+									"name": "Linagora ESN"
+								},
+								"modules": [
+									"linagora.esn.calendar",
+									"linagora.esn.contact",
+									...
+								]
+							}
+							```
+						</section>
 				</section>
 				<section>
 					<h3>Communicate among OpenPaaS modules</h3>
 				</section>
 				<section>
 					<h3>Core Registries</h3>
+					<section data-markdown>
+						![core-registry](images/core_registry.png)
+					</section>
 					<section data-markdown>
 						- Core defines registries for generic concepts
 						- Modules register their logics and configurations
@@ -144,13 +184,13 @@
 					<h3>Connected modules</h3>
 					<section data-markdown>
 						- Having a connected module among modules
-
+						- Modules:
 						```javascript
-						Modules:
 							linagora.esn.unifiedinbox
 							linagora.esn.james
-
-						Connected modules:
+						```
+						- Connected modules:
+						```
 						  linagora.esn.unifiedinbox.james
 						```
 					</section>
@@ -163,12 +203,21 @@
 						- Create one more connected module to connect modules
 					</section>
 				</section>
+				<section data-markdown>
+					### Conclusion
+
+					- Achievement: Modularity the OpenPaaS platform by functionalities
+					- Issue: All the modules are loaded and running in the same OpenPaaS instance
+						- Use same resources
+						- Frontend performance
+					- Next: Each module run independently
+					
+				</section>
 				<section>
-					<h3>Questions?</h3>
+					<h3>Questions & Discussion</h3>
 					<br>
 					<br>
-					<br>
-					<p>Presentation online : <a>https://tuanlc.github.io/open-tech-submit-vietnam-2019/index.html</a></p>
+					<p>Presentation online : <a>https://tuanlc.github.io/open-tech-submit-vietnam-2019</a></p>
 				</section>
 				<section data-markdown>
 					#### Thank you!
